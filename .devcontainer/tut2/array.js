@@ -40,3 +40,12 @@ const myArr2 = new Array(1, 2, 3, 4)
 // const myn2 = myArr.splice(1, 3)
 // console.log("C ", myArr);
 // console.log(myn2);
+
+// splice agar use krenge to original array bhi manuplate ho jayegi 
+// arr = [0,1,2,3,4,5] after arr.splice(1,3)
+//output me original arr = [0,4,5] or splice wali = [1,2,3]
+
+// but slice me esa nhi hota isme sirf new array jo slice ki h vhi hogi 
+//eg arr.slice(1,3)
+// output = [1,2]
+//slice me jo bhi index hum denge uski renge ka first and last ko chodkr print hoga
