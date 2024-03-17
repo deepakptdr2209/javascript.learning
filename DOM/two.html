@@ -8,32 +8,42 @@
 </head>
 <body style="background-color: #212121; color: #fff;">
     <div class="parent">
-        <!-- this is a comment -->
+    
         <div class="day">Monday</div>
-        <div class="day">Tuesday</div>
+        <div class="day">Tuesday <span> none</span></div>
         <div class="day">Wednesday</div>
         <div class="day">Thursday</div>
     </div>
 </body>
 <script>
+    //++++++++ parent class ko selcet krne k liye queryselector ka use kiya
     const parent = document.querySelector('.parent')
-    // console.log(parent);
-    // console.log(parent.children);
-    // console.log(parent.children[1].innerHTML);
+   // console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1].innerText);
 
-    // for (let i = 0; i < parent.children.length; i++) {
-    //      console.log(parent.children[i].innerHTML);
-        
-    // }
-    parent.children[1].style.color = "orange"
-    // console.log(parent.firstElementChild);
-    // console.log(parent.lastElementChild);
 
-    const dayOne = document.querySelector('.day')
-    // console.log(dayOne);
-    // console.log(dayOne.parentElement);
-    // console.log(dayOne.nextElementSibling);
+    // hme html collection mila h parent class ka to for each nhi 
+    // lga skte isliye for loop lga denge
+    for (let i = 0; i < parent.children.length; i++) {
+         console.log(parent.children[i].innerHTML);
+         parent.children[i].style.color = "orange"
+    }
 
+
+   
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+    // day ki hme node list milegi jispr for each llga denge
+    const dayOne = document.querySelectorAll('.day')
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);//ye output tuesday dega bcz vhi sibling h next to monday
+   dayOne.forEach( (li)=>{
+    li.style.color="red"
+   })
+  
     console.log("NODES: ", parent.childNodes);
 </script>
 </html>
