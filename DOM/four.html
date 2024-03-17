@@ -15,11 +15,12 @@
     function addLanguage(langName){
         const li = document.createElement('li');
         li.innerHTML = `${langName}`
-        document.querySelector('.language').appendChild(li)
+        const addtext = document.querySelector('.language')
+        addtext.appendChild(li)// iska mtlb he addtext ko li me append kr do
     }
     addLanguage("python")
     addLanguage("typescript")
-
+//+++++++ optimised way me krna
     function addOptiLanguage(langName){
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName))
@@ -39,7 +40,7 @@
     const firstLang = document.querySelector("li:first-child")
     firstLang.outerHTML = '<li>TypeScript</li>'
 
-    //remove
+    // //remove
     const lastLang = document.querySelector('li:last-child')
     lastLang.remove()
 
