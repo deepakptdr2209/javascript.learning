@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+
+        /* onclick html me nhi lenge , kam krta h leki  jab scale hoga application to problem hogi 
+         isliye hum sari click events ko script me use krege  */
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // //+++ imp: js jo h vo sequencialy km krta h 
+
+    // /* yha lenge hum onclick to scaling me problem nhi hogi , 
+    // yha pr bhi koi problem nhi h but but  ye hme km feature dega 
+    // isliye hum prefer krenge ki event listener ka use kre
+    // */
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    //  /* thing to learn in  events
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    // */
+
+
+    // /* notes : 1. propogation two types kk honge events me
+    //         2.  true and false , 
+    //         3.   true me catch hota h ,top to down hota h
+    //         4. false me bubling hogi , bottom to up
+    // */
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false) //ye jo false likha h ye propogation k liye ,
+    // // bty default false hi hota h agr hum mention  na kre to .
+    // // false mtlb -- bubling hota h mtlb bottom ki chije phle hogi event me
+    // // true bhi hota -- iska mtlb top se bottom me propogation hoga
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation() // stop kr dega bubling ko or sirf owl clicked hi show hoga ,"clicked inside the ul" nhi 
+    // }, false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault(); // isko use krenge event ko rokne k liye
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+   
+    //++++ event ko click krne pr vo htna kese h ye sikha niche +++++++++
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        // e.target hme image kha se aayi vo dega 
+        // lekin bs ese use krke  remove krenge to list item pr click krte hi 
+        // sari images chli jayegi , ise prevent krne k liye 
+        // hum  e.target.tagName ka use krenge or ye tagname use krke hum   strict
+        // condition lga skte h ki bs IMG ko click krne pr hi htana h
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            console.log(e.target.parentNode);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    
+        
+    })
+    // remove ko is trh se bhi use kr skte he
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>
