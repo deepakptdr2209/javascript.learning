@@ -11,7 +11,8 @@
 <script>
     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', requestUrl)
+  /// whene you forget the concept just read mdn 
+    xhr.open('GET', requestUrl) // The XMLHttpRequest method open() initializes a newly-created request, or re-initializes an existing one
     xhr.onreadystatechange = function(){
         console.log(xhr.readyState);
         if (xhr.readyState === 4) {
